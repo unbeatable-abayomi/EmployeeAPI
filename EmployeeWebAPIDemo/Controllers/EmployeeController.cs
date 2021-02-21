@@ -26,5 +26,19 @@ namespace EmployeeWebAPIDemo.Controllers
         {
             return await _context.Employees.ToListAsync();
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Employee>> GetEmployee(int id)
+        {
+            var employee = await _context.Employees.FindAsync(id);
+
+            if(employee == null)
+            {
+                return NotFound();
+            }
+
+            return employee;
+        }
+
     }
 }
