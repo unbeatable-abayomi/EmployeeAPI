@@ -26,6 +26,13 @@ namespace EmployeeWebAPIDemo.Models
         [StringLength(10, ErrorMessage = "Last Name Must Be less than 10 charactes")]
         public string LastName { get; set; }
 
+
+        [Column("Title")]
+        [Display(Name = "Title")]
+        [Required(ErrorMessage = "Title is required")]
+        [StringLength(10, ErrorMessage = "Title Must Be less than 10 charactes")]
+        public string Title { get; set; }
+
         [Column("BirthDate")]
         [Display(Name = "Birth Date")]
         [Required(ErrorMessage = "Birth Date is required")]

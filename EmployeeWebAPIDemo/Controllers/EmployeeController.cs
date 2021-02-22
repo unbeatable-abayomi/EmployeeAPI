@@ -40,5 +40,54 @@ namespace EmployeeWebAPIDemo.Controllers
             return employee;
         }
 
+
+
+        [HttpPost]
+        public async Task<ActionResult<Employee>> PostEmployee (Employee employee)
+        {
+            _context.Employees.Add(employee);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetEmployee", new { id = employee.EmployeeId }, employee);
+        }
+
+        [HttpPut("{id}")]
+
+        public async Task<ActionResult<Employee>> PutEmployee(int id, Employee employee)
+        {
+            if (id != employee.EmployeeId)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(employee).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch(DbUpdateConcurrencyException)
+            {
+                if (!EmployeeExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+
+                }
+
+            }
+
+            return NoContent();
+
+        }
+
+        private bool EmployeeExists(int id)
+        {
+            return _context.Employees.Any(e => e.EmployeeId == id);
+        }
+
     }
 }
