@@ -29,12 +29,9 @@ namespace EmployeeWebAPIDemo
         {
             services.AddControllers();
 
-            services.AddDbContext<EmployeeAppDBContext>(opts =>
-            {
-                DbContextOptionsBuilder dbContextOptionsBuilder = opts.UseSqlServer(
-                    Configuration["ConnectionStrings:EmployeeDEMO_CON"]
-                    );
-            });
+            services.AddDbContext<EmployeeAppDBContext>(options =>
+                     options.UseSqlServer(
+                         Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

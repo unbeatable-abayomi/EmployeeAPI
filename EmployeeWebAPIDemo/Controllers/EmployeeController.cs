@@ -6,6 +6,7 @@ using EmployeeWebAPIDemo.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ParkWayProject2.HelperMethods;
 
 namespace EmployeeWebAPIDemo.Controllers
 {
@@ -24,6 +25,19 @@ namespace EmployeeWebAPIDemo.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Employee>>> GetEmployees()
         {
+            var helperDataClass = new HelperDataClass();
+
+            var details = helperDataClass.GetAllEmployeeBankDetails();
+
+            //foreach (var d in details.employee)
+            //{
+            //    Task.Run(()={ 
+
+
+            //    });
+            //}
+
+
             return await _context.Employees.ToListAsync();
         }
 
@@ -87,6 +101,23 @@ namespace EmployeeWebAPIDemo.Controllers
         private bool EmployeeExists(int id)
         {
             return _context.Employees.Any(e => e.EmployeeId == id);
+        }
+
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Employee>> DeleteEmployee(int id)
+        {
+            var employee = await _context.Employees.FindAsync(id);
+            if(employee == null) {
+
+                return NotFound();
+            }
+            _context.Employees.Remove(employee);
+            await _context.SaveChangesAsync();
+
+            return employee;    
+
+
         }
 
     }
