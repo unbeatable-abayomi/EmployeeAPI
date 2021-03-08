@@ -146,6 +146,82 @@ namespace EmployeeWebAPIDemo.Controllers
         }
 
 
+
+
+        [HttpGet("WEMABANK")]
+        public async Task<ActionResult<IEnumerable<WemaCustomer>>> GetWemaCustomers()
+        {
+            //var helperDataClass = new HelperDataClass();
+
+            //var details = helperDataClass.GetAllEmployeeBankDetails();
+
+            //List<UbaCustomer> allubaCustomers = await _context.ubaCustomers.ToListAsync();
+            //List<CorrectBankDetails> correctBankDetails = new List<CorrectBankDetails>();
+            //foreach (var d in details.employee)
+            //{
+            //    foreach (var x in allubaCustomers)
+            //    {
+            //        if (d.accountNumber == x.AccountNumber && d.bankName == x.BankName)
+            //        {
+            //            CorrectBankDetails correctBankDetails1 = new CorrectBankDetails()
+            //            {
+            //                AccountNumber = x.AccountNumber,
+            //                BankName = x.BankName
+            //            };
+
+
+
+            //            correctBankDetails.Add(correctBankDetails1);
+
+            //        }
+
+            //    }
+            //}
+            //var allValidUbaBank = correctBankDetails.ToList();
+            return await _context.WemaCustomers.ToListAsync();
+        }
+
+
+
+        [HttpGet("WEMABANK/{id}")]
+        public async Task<ActionResult<WemaCustomer>> GetWemaOneCustomer(int id)
+        {
+            var wemaCustomer = await _context.WemaCustomers.FindAsync(id);
+
+            if (wemaCustomer == null)
+            {
+                return NotFound();
+            }
+
+            return wemaCustomer;
+        }
+
+        [HttpPost("WEMABANK")]
+        public async Task<ActionResult<WemaCustomer>> PostWemaOneCustomer(WemaCustomer wemaCustomer)
+        {
+            _context.WemaCustomers.Add(wemaCustomer);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetWemaOneCustomer", new { id = wemaCustomer.Id }, wemaCustomer);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Employee>>> GetEmployees()
         {

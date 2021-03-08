@@ -15,6 +15,7 @@ namespace EmployeeWebAPIDemo.Models
         public DbSet<Employee> Employees { get; set; }
        public DbSet<UbaCustomer> ubaCustomers { get; set; }
        public DbSet<ZenithCustomer> ZenithCustomers { get; set; }
+       public DbSet<WemaCustomer> WemaCustomers { get; set; }
       
     }
 }
