@@ -29,5 +29,29 @@ namespace EmployeeWebAPIDemo.Controllers
           
             return await _context.ubaCustomers.ToListAsync();
         }
+
+
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<UbaCustomer>> GetUbaOneCustomer(int id)
+        {
+            var ubaCustomer = await _context.ubaCustomers.FindAsync(id);
+
+            if (ubaCustomer == null)
+            {
+                return NotFound();
+            }
+
+            return ubaCustomer;
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<UbaCustomer>> PostEmployee(UbaCustomer ubaCustomer)
+        {
+            _context.ubaCustomers.Add(ubaCustomer);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetUbaOneCustomer", new { id = ubaCustomer.Id }, ubaCustomer);
+        }
     }
 }

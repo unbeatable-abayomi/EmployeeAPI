@@ -10,55 +10,55 @@
 			"id": 2,
 			"name": "mike gold",
 			"accountNumber": "0000000002",
-			"bankName": "WEMA BANK"
+			"bankName": "WEMABANK"
 		},
 		{
 			"id": 3,
 			"name": "willams winpo",
 			"accountNumber": "0000000003",
-			"bankName": "GT BANK"
+			"bankName": "GTBANK"
 		},
 		{
 			"id": 4,
 			"name": "ade tunji",
 			"accountNumber": "0000000004",
-			"bankName": "STERLING BANK"
+			"bankName": "STERLINGBANK"
 		},
 		{
 			"id": 5,
 			"name": "Kole fiji",
 			"accountNumber": "0000000005",
-			"bankName": "ZENITH BANK"
+			"bankName": "ZENITHBANK"
 		},
 		{
 			"id": 6,
 			"name": "Femi Oba",
 			"accountNumber": "0000000006",
-			"bankName": "ZENITH BANK"
+			"bankName": "ZENITHBANK"
 		},
 		{
 			"id": 7,
 			"name": "Kelechi Marachi",
 			"accountNumber": "0000000007",
-			"bankName": "FIRST BANK"
+			"bankName": "FIRSTBANK"
 		},
 		{
 			"id": 8,
 			"name": "Oluchi Marachi",
 			"accountNumber": "0000000008",
-			"bankName": "ACCESS BANK"
+			"bankName": "ACCESSBANK"
 		},
 		{
 			"id": 9,
 			"name": "Ada Marachi",
 			"accountNumber": "0000000009",
-			"bankName": "POLARIS BANK"
+			"bankName": "POLARISBANK"
 		},
 		{
 			"id": 10,
 			"name": "Flur Sharp",
 			"accountNumber": "0000000010",
-			"bankName": "FIDELITY BANK"
+			"bankName": "FIDELITYBANK"
 		},
 		{
 			"id": 11,
@@ -70,7 +70,7 @@
 			"id": 12,
 			"name": "Seun Ogo",
 			"accountNumber": "0000000016",
-			"bankName": "ZENITH BANK"
+			"bankName": "ZENITHBANK"
 		}
 
 	]
